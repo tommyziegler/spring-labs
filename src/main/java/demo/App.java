@@ -15,14 +15,13 @@
  */
 package demo;
 
+import demo.components.MainLayout;
+import javafx.application.Preloader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Import;
-
-import demo.components.MainLayout;
 
 /**
  * @author Thomas Darimont
@@ -41,6 +40,9 @@ public class App extends AbstractJavaFxApplicationSupport {
 
 	@Override
 	public void start(Stage stage) throws Exception {
+
+        notifyPreloader(new Preloader.StateChangeNotification(
+                Preloader.StateChangeNotification.Type.BEFORE_START));
 
 		stage.setTitle(windowTitle);
 		stage.setScene(new Scene(mainLayout));
