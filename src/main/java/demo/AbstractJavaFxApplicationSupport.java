@@ -6,8 +6,7 @@ import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Import;
-
-import com.sun.xml.internal.ws.util.StringUtils;
+import org.springframework.util.StringUtils;
 
 /**
  * @author Thomas Darimont
@@ -28,7 +27,8 @@ public abstract class AbstractJavaFxApplicationSupport extends Application {
 		AutowireCapableBeanFactory bf = applicationContext.getAutowireCapableBeanFactory();
 		bf.autowireBean(this);
 
-		applicationContext.getBeanFactory().registerSingleton(StringUtils.decapitalize(getClass().getSimpleName()), this);
+		applicationContext.getBeanFactory().registerSingleton(
+				StringUtils.uncapitalize(getClass().getSimpleName()), this);
 	}
 
 	@Override
