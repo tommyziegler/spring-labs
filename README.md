@@ -3,6 +3,8 @@ Spring Boot Java FX integration example
 
 Prototypic example on how one could use Spring-Boot with JavaFX under Java 8. 
 
+Run with ```mvn clean spring-boot:run -Djavafx.preloader=demo.AppInitializationPreloader``` 
+
 Run with ```mvn spring-boot:run``` 
 or
 Run with ```java -jar target/spring-boot-javafx-demo.jar```
